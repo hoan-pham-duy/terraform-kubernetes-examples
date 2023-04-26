@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-web-docker
+spec:
+  selector:
+    matchLabels:
+      name: sample-web-docker
+  template:
+    metadata:
+      labels:
+        name: sample-web-docker
+    spec:
+      containers:
+      - name: app
+        image: lighthappy/lh_sample_web_docker:latest
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 8080
